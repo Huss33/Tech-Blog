@@ -1,9 +1,10 @@
 
 const router = require('express').Router();
+const withAuth = require('../utils/auth')
 
-router.get('/home', async (req, res) => {
+router.get('/dash', withAuth, async (req, res) => {
     try {
-    res.render('/layouts/main');
+    res.render('dashboard');
     } catch (err) {
       res.status(500).json(err);
     }
