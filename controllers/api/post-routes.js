@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth')
+// const withAuth = require('../utils/auth'); add at the end if it works!!!
 const { Post, User } = require('../../models');
 
-router.get('/posts', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll(req.body, {
             include: {
@@ -16,7 +16,7 @@ router.get('/posts', withAuth, async (req, res) => {
     }
 });
 
-router.post('/posts', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
             title: req.body.title,
@@ -29,7 +29,7 @@ router.post('/posts', withAuth, async (req, res) => {
     }
 });
 
-router.put('/posts/:id', withAuth (req, res) => {
+router.put('/posts/:id', (req, res) => {
     Post.update(
         {
             title: req.body.title,
@@ -47,7 +47,7 @@ router.put('/posts/:id', withAuth (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.delete('/posts/:id', withAuth (req, res) => {
+router.delete('/posts/:id', (req, res) => {
     Post.destroy({
       where: {
         id: req.params.id,
@@ -58,3 +58,5 @@ router.delete('/posts/:id', withAuth (req, res) => {
       })
       .catch((err) => res.json(err));
   });
+
+  module.exports = router;

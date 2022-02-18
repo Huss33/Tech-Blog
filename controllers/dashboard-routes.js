@@ -1,10 +1,10 @@
 
 const router = require('express').Router();
-const withAuth = require('../utils/auth')
+// const withAuth = require('../utils/auth') add at the end if it works!!!
 
-router.get('/dash', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-    res.render('dashboard');
+    res.render('all-posts-admin',{layout:'dashboard'});
     } catch (err) {
       res.status(500).json(err);
     }
