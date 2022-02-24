@@ -3,8 +3,8 @@ const signupFormHandler = async function(event) {
 
   const usernameEl = document.querySelector('#username-input-signup');
   const passwordEl = document.querySelector('#password-input-signup');
-
-  const response = await fetch('/api/user/', {
+console.log(usernameEl.value, passwordEl.value);
+  const response = await fetch('/api/users/', {
     method: 'POST',
     body: JSON.stringify({
       username: usernameEl.value,

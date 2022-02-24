@@ -33,9 +33,9 @@ h6 {
   line-height: 1.25;
 }
 
-h2 a:visited {
+/* h2 a:visited {
   color: var(--tertiary);
-}
+} */
 
 h2 a {
   color: var(--primary);
